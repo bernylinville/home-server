@@ -1,0 +1,28 @@
+---
+- name: Upgrade all system packages
+  ansible.builtin.pacman:
+    upgrade: yes
+    update_cache: yes
+  register: pacman_upgrade
+  retries: 5
+  until: pacman_upgrade is success
+
+- name: Install common packages
+  ansible.builtin.pacman:
+    name:
+      - iptables-nft
+      - ca-certificates
+      - curl
+      - iputils
+      - ipvsadm
+      - lvm2
+      - mesa
+      - net-tools
+      - nfs-utils
+      - open-iscsi
+      - psmisc
+      - smartmontools
+    update_cache: yes
+  register: pacman_install_common
+  retries: 5
+  until: pacman_install_common is success

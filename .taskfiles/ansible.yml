@@ -22,6 +22,18 @@ tasks:
     cmds:
       - "ansible all -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml --list-hosts"
 
+  playbook:arch-prepare:
+    desc: Prepare all the k8s nodes for running k3s
+    dir: provision/ansible
+    cmds:
+      - "ansible-playbook -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml {{.ANSIBLE_PLAYBOOK_DIR}}/arch-prepare.yml"
+
+  playbook:arch-upgrade:
+    desc: Upgrade all the k8s nodes operating system
+    dir: provision/ansible
+    cmds:
+      - "ansible-playbook -i {{.ANSIBLE_INVENTORY_DIR}}/hosts.yml {{.ANSIBLE_PLAYBOOK_DIR}}/arch-upgrade.yml"
+
   playbook:ubuntu-prepare:
     desc: Prepare all the k8s nodes for running k3s
     dir: provision/ansible
