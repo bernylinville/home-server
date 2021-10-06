@@ -60,8 +60,10 @@ spec:
       traefik:
         expose: true
       web:
+        exposedPort: 30001
         redirectTo: websecure
       websecure:
+        exposedPort: 30002
         tls:
           enabled: true
           options: "default"
