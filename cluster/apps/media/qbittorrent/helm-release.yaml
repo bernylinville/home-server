@@ -75,8 +75,6 @@ spec:
     #   prometheusRule:
     #     enabled: true
     podSecurityContext:
-      supplementalGroups:
-        - 100
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
