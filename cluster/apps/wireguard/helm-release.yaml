@@ -22,6 +22,12 @@ spec:
     env:
       TZ: "Asia/Shanghai"
     service:
+      main:
+        ports:
+          vpn:
+            enabled: true
+            port: 24653
+            protocol: UDP
       wg:
         enabled: true
         type: LoadBalancer
@@ -31,9 +37,9 @@ spec:
         ports:
           wg:
             enabled: true
-            port: 24654
+            port: 24653
             protocol: UDP
-            targetPort: 24654
+            targetPort: 24653
     configSecret:
       enabled: true
       config: |
