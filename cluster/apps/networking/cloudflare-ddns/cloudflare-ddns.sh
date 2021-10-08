@@ -10,6 +10,8 @@ record4=$(curl -s -X GET \
     -H "Content-Type: application/json" \
 )
 
+printf $record4
+
 old_ip4=$(echo "$record4" | sed -n 's/.*"content":"\([^"]*\).*/\1/p')
 if [ "$ip4" = "$old_ip4" ]; then
     printf "%s - Success - IP Address '%s' has not changed" "$(date -u)" "$ip4"
@@ -24,6 +26,8 @@ update4=$(curl -s -X PUT \
     -H "Content-Type: application/json" \
     --data "{\"id\":\"$CLOUDFLARE_ZONEID\",\"type\":\"A\",\"proxied\":true,\"name\":\"$CLOUDFLARE_RECORD_NAME\",\"content\":\"$ip4\"}" \
 )
+
+printf $update4
 
 if echo "$update4" | grep -q '\"success\":false'; then
     printf "%s - Yikes - Updating IP Address '%s' has failed" "$(date -u)" "$ip4"
