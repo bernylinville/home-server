@@ -6,4 +6,5 @@ resources:
   - metallb-system.yaml
   - monitoring.yaml
   - networking.yaml
+  - sync.yaml
   - wireguard.yaml
