@@ -6,6 +6,6 @@ resources:
   # - media
   # - monitoring
   - networking
-  - sync
+  # - sync
   - system-upgrade
   # - wireguard
