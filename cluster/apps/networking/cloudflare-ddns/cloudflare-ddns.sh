@@ -22,7 +22,7 @@ update4=$(curl -s -X PUT \
     -H "X-Auth-Email: $CLOUDFLARE_EMAIL" \
     -H "X-Auth-Key: $CLOUDFLARE_APIKEY" \
     -H "Content-Type: application/json" \
-    --data "{\"id\":\"$CLOUDFLARE_ZONEID\",\"type\":\"A\",\"proxied\":true,\"name\":\"$CLOUDFLARE_RECORD_NAME\",\"content\":\"$ip4\"}" \
+    --data "{\"id\":\"$CLOUDFLARE_ZONEID\",\"type\":\"A\",\"proxied\":false,\"name\":\"$CLOUDFLARE_RECORD_NAME\",\"content\":\"$ip4\"}" \
 )
 
 if echo "$update4" | grep -q '\"success\":false'; then
