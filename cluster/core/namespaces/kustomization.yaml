@@ -7,4 +7,4 @@ resources:
   - monitoring.yaml
   - networking.yaml
   - sync.yaml
-  - wireguard.yaml
+  # - wireguard.yaml
