@@ -3,9 +3,9 @@ kind: Kustomization
 resources:
   - default
   - kube-system
-  - media
+  # - media
   # - monitoring
   - networking
-  - sync
+  # - sync
   - system-upgrade
   # - wireguard
